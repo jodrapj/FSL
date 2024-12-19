@@ -1,0 +1,10 @@
+CREATE FILE test.txt
+CREATE DIR test.d
+OPEN test.d
+COPY FILE ../test.txt test1.txt
+OPEN ../
+WRITE text1.txt
+    asus 
+    grandmaster 
+STOP
+DELETE DIR test.d

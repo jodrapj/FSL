@@ -36,8 +36,10 @@ class Ev:
                     f = open(args[1], 'a')
                     pc += 1
                     while lines[pc].split(maxsplit=1)[0] != 'STOP':
-                        f.write(lines[pc].split(maxsplit=1)[0])
+                        string = lines[pc] + '\n' if lines[pc] != '' else '\n'
+                        f.write(string)
                         pc += 1
+                    f.close()
 
                 case 'STOP':
                     pc += 1
@@ -46,6 +48,9 @@ class Ev:
                     if args[1] == "FILE":
                         shutil.copy2(args[2], args[3])
                     pc += 1
+
+                case _:
+                    pass
                     
     
-Ev().ev(open("./test.fsl").read())
+Ev().ev(open(sys.argv[1]).read())
